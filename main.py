@@ -14,20 +14,19 @@ smtp_port = config["smtp_port"]
 sender_email = config["sender_email"]
 sender_password = config["sender_password"]
 recipient_email = config["recipient_email"]
-i = 0
-subject = f"Sean Test {i}"
-body = f"Sean Test {i}"
-msg = MIMEText(body)
-msg["From"] = sender_email
-msg["To"] = recipient_email
-msg["Subject"] = subject
-
 
 try:
     with smtplib.SMTP(smtp_server, smtp_port) as server:
         server.starttls()
         server.login(sender_email, sender_password)
         for i in range(100):
+            subject = f"TEST BATCH ALPHA {i+1}"
+            body = f"TEST BATCH ALPHA {i+1}"
+            msg = MIMEText(body)
+            msg["From"] = sender_email
+            msg["To"] = recipient_email
+            msg["Subject"] = subject
+
             server.sendmail(sender_email, recipient_email, msg.as_string())
             print(f"Email {i+1} sent.")
 
