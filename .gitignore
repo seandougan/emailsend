@@ -1,0 +1,32 @@
+# Ignore config files with sensitive information
+config.json
+
+# Ignore Python bytecode files
+*.pyc
+__pycache__/
+
+# Ignore virtual environment directories
+venv/
+.env/
+
+# Ignore OS-specific files
+.DS_Store           # macOS
+Thumbs.db           # Windows
+
+# Ignore IDE specific files (e.g., PyCharm, VSCode)
+.idea/
+.vscode/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+
+# Ignore compiled files and distributions
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Ignore personal files
+*.swp               # Vim swap files
