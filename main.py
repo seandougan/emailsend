@@ -14,14 +14,16 @@ smtp_port = config["smtp_port"]
 sender_email = config["sender_email"]
 sender_password = config["sender_password"]
 recipient_email = config["recipient_email"]
+rangeIteration = config["range_iteration"]
+test_batch_name = config["test_batch_name"]
 
 try:
     with smtplib.SMTP(smtp_server, smtp_port) as server:
         server.starttls()
         server.login(sender_email, sender_password)
-        for i in range(100):
-            subject = f"TEST BATCH ALPHA {i+1}"
-            body = f"TEST BATCH ALPHA {i+1}"
+        for i in range(rangeIteration):
+            subject = f"TEST {test_batch_name} {i+1}"
+            body = f"TEST {test_batch_name} {i+1}"
             msg = MIMEText(body)
             msg["From"] = sender_email
             msg["To"] = recipient_email
